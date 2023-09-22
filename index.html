@@ -4,77 +4,94 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style/style.css" ></link>
 	<title>A perfumery calculator</title>
 </head>
 
 <body>
-	<h1>Perculator</h1>
-	<table border="0" cellspacing="0">
+	<div style="padding-bottom: 6px;">
+		<h2 class="per-title">Perculator</h2>
+	</div>
+	<table border="0" cellspacing="0" class="per_table">
 		<tbody>
-			<tr>
-				<td bgcolor="#D9D9D9" height="29"><strong>Date:</strong></td>
-				<td bgcolor="#D9D9D9">&nbsp;039/22/202</td>
-				<td bgcolor="#D9D9D9"><strong>Name:</strong></td>
-				<td colspan="3" bgcolor="#D9D9D9">VP02</td>
-				<td rowspan="2" bgcolor="#D9D9D9"><strong>Finished <br />Perfume <br />Weight<br /> (grams)</strong>
+			<tr class="table-heads">
+				<td>Date</td>
+				<td class="textCenter"><input id="startDate" type="date" /></td>
+				<td >Name</td>
+				<td colspan="3" class="textCenter fontWeightNormal" contenteditable="true">VP02</td>
+				<td rowspan="2" >Finished <br />Perfume <br />Weight<br /> (grams)
 				</td>
-				<td bgcolor="#D9D9D9"><strong>Total</strong></td>
-				<td bgcolor="#D9D9D9">0</td>
-				<td rowspan="2" bgcolor="#D9D9D9"><strong>Final <br />Perfume <br />Concentration<br /> %</strong></td>
-				<td bgcolor="#D9D9D9"><strong>Days:</strong></td>
-				<td>0.000%</td>
+				<td >Total</td>
+				<td class="textCenter fontWeightNormal">0</td>
+				<td rowspan="2" >Final <br />Perfume <br />Concentration<br /> %</td>
+				<td rowspan="2" class="textCenter fontWeightNormal">0.000%</td>
+				<td>Days</td>
+			</tr>
+			<tr class="table-heads">
+				<td colspan="2"  height="21">Description</td>
+				<td colspan="4" class="fontWeightNormal"><div contenteditable="true">no idea</div></td>
+				<td >Concentrate <br />Only</td>
+				<td class="textCenter fontWeightNormal">0.000</td>
+				<td class="textCenter fontWeightNormal">43</td>
+			</tr>
+			<tr class="table-heads">
+				<td  height="21" class="textCenter">Drops</td>
+				<td colspan="2" class="textCenter">Material</td>
+				<td class="textCenter">Dilution</td>
+				<td class="textCenter">Grams <br />added</td>
+				<td class="textCenter">RAW <br />Material<br />in Grams</td>
+				<td class="textCenter">Material <br />(w/ Dil.) <br />in Grams</td>
+				<td class="textCenter">% of raw <br />ingredient in<br /> final perfume</td>
+				<td class="textCenter">% of raw <br />ingredient in<br />concentrate</td>
+				<td class="textCenter">% in total<br />perfume</td>
+				<td class="textCenter"> COMMON <br/> MATERIAL <br/> USE %</td>
+				<td class="textCenter"> Note</td>
 			</tr>
 			<tr>
-				<td colspan="2" bgcolor="#D9D9D9" height="21"><strong>Description:</strong></td>
-				<td colspan="4" bgcolor="#D9D9D9">No idea</td>
-				<td bgcolor="#D9D9D9"><strong>Concentrate <br />Only</strong></td>
-				<td bgcolor="#D9D9D9">0.000</td>
-				<td bgcolor="#D9D9D9">43</td>
+				<td ></td>
+				<td colspan="2" style="padding-left: 3%; font-weight: bolder;">BASE NOTES</td>
+				<td >0</td>
+				<td ></td>
+				<td >0.000</td>
+				<td >0</td>
+				<td >0.000%</td>
+				<td >0.000%</td>
+				<td >0.000%</td>
+				<td ></td>
+				<td ></td>
 			</tr>
 			<tr>
-				<td bgcolor="#B6D7A8" height="21"><strong>Drops</strong></td>
-				<td colspan="2" bgcolor="#B6D7A8"><strong>Material</strong></td>
-				<td bgcolor="#B6D7A8"><strong>Dilution</strong></td>
-				<td bgcolor="#FFE599"><strong>Grams <br />added</strong></td>
-				<td bgcolor="#FFE599"><strong>RAW <br />Material<br />in Grams</strong></td>
-				<td bgcolor="#FFE599"><strong>Material <br />(w/ Dil.) <br />in Grams</strong></td>
-				<td bgcolor="#FFE599"><strong>% of raw <br />ingredient in<br /> final perfume</strong></td>
-				<td bgcolor="#FFE599"><strong>% of raw <br />ingredient in<br />concentrate</strong></td>
-				<td bgcolor="#FFE599"><strong>% in total<br />perfume</strong></td>
+				<td ></td>
+				<td colspan="2" style="padding-left: 3%; font-weight: bolder;">MIDDLE NOTES</td>
+				<td >0</td>
+				<td ></td>
+				<td >0.000</td>
+				<td >0</td>
+				<td >0.000%</td>
+				<td >0.000%</td>
+				<td >0.000%</td>
+				<td ></td>
+				<td ></td>
 			</tr>
 			<tr>
-				<td colspan="4" bgcolor="#A4C2F4"><strong>BASE NOTES</strong></td>
-				<td bgcolor="#A4C2F4">0</td>
-				<td bgcolor="#A4C2F4">0.000</td>
-				<td bgcolor="#A4C2F4">0</td>
-				<td bgcolor="#A4C2F4">0.000%</td>
-				<td bgcolor="#A4C2F4">0.000%</td>
-				<td bgcolor="#A4C2F4">0.000%</td>
+				<td ></td>
+				<td colspan="2" style="padding-left: 3%; font-weight: bolder;">TOP NOTES</td>
+				<td >0</td>
+				<td ></td>
+				<td >0.000</td>
+				<td >0</td>
+				<td >0.000%</td>
+				<td >0.000%</td>
+				<td >0.000%</td>
+				<td ></td>
+				<td ></td>
 			</tr>
 			<tr>
-				<td colspan="4" bgcolor="#A4C2F4"><strong>MIDDLE NOTES</strong></td>
-				<td bgcolor="#A4C2F4">0</td>
-				<td bgcolor="#A4C2F4">0.000</td>
-				<td bgcolor="#A4C2F4">0</td>
-				<td bgcolor="#A4C2F4">0.000%</td>
-				<td bgcolor="#A4C2F4">0.000%</td>
-				<td bgcolor="#A4C2F4">0.000%</td>
-			</tr>
-			<tr>
-				<td colspan="4" bgcolor="#A4C2F4"><strong>TOP NOTES</strong></td>
-				<td bgcolor="#A4C2F4">0</td>
-				<td bgcolor="#A4C2F4">0.000</td>
-				<td bgcolor="#A4C2F4">0</td>
-				<td bgcolor="#A4C2F4">0.000%</td>
-				<td bgcolor="#A4C2F4">0.000%</td>
-				<td bgcolor="#A4C2F4">0.000%</td>
-			</tr>
-			<tr>
-				<td colspan="4" bgcolor="#D0E0E3" height="21"><strong>ALCOHOL (in grams)</strong></td>
+				<td colspan="4" height="21">ALCOHOL (in grams)</td>
+				<td colspan="8" class="textCenter" contenteditable="true"></td>
 			</tr>
 		</tbody>
 	</table>
-	<p>&nbsp;</p>
 </body>
 
 </html>
