@@ -4,7 +4,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style/style.css" ></link>
+
+	<script src="https://cdn.jsdelivr.net/npm/umbrellajs"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	</link>
+
 	<title>A perfumery calculator</title>
 </head>
 
@@ -13,85 +20,195 @@
 		<h2 class="per-title">Perculator</h2>
 	</div>
 	<table border="0" cellspacing="0" class="per_table">
-		<tbody>
+		<thead>
 			<tr class="table-heads">
+				<td  rowspan="3" style="width:1px;"><p class="action">Action</p></td>
 				<td>Date</td>
 				<td class="textCenter"><input id="startDate" type="date" /></td>
-				<td >Name</td>
-				<td colspan="3" class="textCenter fontWeightNormal" contenteditable="true">VP02</td>
-				<td rowspan="2" >Finished <br />Perfume <br />Weight<br /> (grams)
+				<td>Name</td>
+				<td colspan="3" class="caret-visible fontWeightNormal" contenteditable="true">VP02</td>
+				<td rowspan="2">Finished <br />Perfume <br />Weight<br /> (grams)
 				</td>
-				<td >Total</td>
+				<td>Total</td>
 				<td class="textCenter fontWeightNormal">0</td>
-				<td rowspan="2" >Final <br />Perfume <br />Concentration<br /> %</td>
+				<td rowspan="2">Final <br />Perfume <br />Concentration<br /> %</td>
 				<td rowspan="2" class="textCenter fontWeightNormal">0.000%</td>
 				<td>Days</td>
 			</tr>
 			<tr class="table-heads">
-				<td colspan="2"  height="21">Description</td>
-				<td colspan="4" class="fontWeightNormal"><div contenteditable="true">no idea</div></td>
-				<td >Concentrate <br />Only</td>
+				
+				<td colspan="2" height="21">Description</td>
+				<td colspan="4" class="fontWeightNormal" contenteditable="true">
+					<textarea class="description-text">Hello</textarea>
+				</td>
+				<td>Concentrate <br />Only</td>
 				<td class="textCenter fontWeightNormal">0.000</td>
 				<td class="textCenter fontWeightNormal">43</td>
 			</tr>
 			<tr class="table-heads">
-				<td  height="21" class="textCenter">Drops</td>
+				
 				<td colspan="2" class="textCenter">Material</td>
 				<td class="textCenter">Dilution</td>
-				<td class="textCenter">Grams <br />added</td>
-				<td class="textCenter">RAW <br />Material<br />in Grams</td>
-				<td class="textCenter">Material <br />(w/ Dil.) <br />in Grams</td>
+				<td height="21" class="textCenter">Drops</td>
+				<td class="textCenter">Material<br />Added in<br> %</td>
+				<td class="textCenter">Grams <br />Added</td>
+				<td class="textCenter">RAW<br />Material in<br>Grams</td>
 				<td class="textCenter">% of raw <br />ingredient in<br /> final perfume</td>
 				<td class="textCenter">% of raw <br />ingredient in<br />concentrate</td>
 				<td class="textCenter">% in total<br />perfume</td>
-				<td class="textCenter"> COMMON <br/> MATERIAL <br/> USE %</td>
+				<td class="textCenter"> COMMON <br /> MATERIAL <br /> USE %</td>
 				<td class="textCenter"> Note</td>
 			</tr>
+		</thead>
+		<tbody>
+			<tr class="notes-head">
+				<td></td>
+				<td colspan="3" style="padding-left: 8em; font-weight: bolder;">BASE NOTES</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td colspan="2"></td>
+			</tr>
+			<tr class="editabl-row">
+				<td>
+					<button>D</button>
+				</td>
+				<td colspan="2">
+					<div class="custom-dropdown">
+						<div>
+							<input class="dropdown-trigger" type="text" placeholder="Select or Search...">
+							<img class="dropdownTrigger svg-color" src="style/icons/chevron-down.svg">
+						</div>
+						<div class="dropdown-options">
+							<div class="dropdown-option">Option 1</div>
+							<div class="dropdown-option">Option 2</div>
+							<div class="dropdown-option">Option 3</div>
+						</div>
+					</div>
+				</td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+
 			<tr>
-				<td ></td>
-				<td colspan="2" style="padding-left: 3%; font-weight: bolder;">BASE NOTES</td>
-				<td >0</td>
-				<td ></td>
-				<td >0.000</td>
-				<td >0</td>
-				<td >0.000%</td>
-				<td >0.000%</td>
-				<td >0.000%</td>
-				<td ></td>
-				<td ></td>
+				<td></td>
+				<td colspan="12" style="text-align: center;">
+					<button class="add-new">ADD NEW BASE NOTE</button>
+				</td>
+			</tr>
+			<tr class="notes-head">
+				<td></td>
+				<td colspan="3" style="padding-left: 8em; font-weight: bolder;">MIDDLE NOTES</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td colspan="2"></td>
+			</tr>
+			<tr class="editabl-row">
+				<td>
+					<button>D</button>
+				</td>
+				<td colspan="2">
+					<div class="custom-dropdown">
+						<div>
+							<input class="dropdown-trigger" type="text" placeholder="Select or Search...">
+							<img class="dropdownTrigger svg-color" src="style/icons/chevron-down.svg">
+						</div>
+						<div class="dropdown-options">
+							<div class="dropdown-option">Option 1</div>
+							<div class="dropdown-option">Option 2</div>
+							<div class="dropdown-option">Option 3</div>
+						</div>
+					</div>
+				</td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
 			</tr>
 			<tr>
-				<td ></td>
-				<td colspan="2" style="padding-left: 3%; font-weight: bolder;">MIDDLE NOTES</td>
-				<td >0</td>
-				<td ></td>
-				<td >0.000</td>
-				<td >0</td>
-				<td >0.000%</td>
-				<td >0.000%</td>
-				<td >0.000%</td>
-				<td ></td>
-				<td ></td>
+				<td></td>
+				<td colspan="12" style="text-align: center;">
+					<button class="add-new">ADD NEW MIDDLE NOTE</button>
+				</td>
+			</tr>
+			<tr class="notes-head">
+				<td></td>
+				<td colspan="3" style="padding-left: 8em; font-weight: bolder;">TOP NOTES</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td colspan="2"></td>
+			</tr>
+			<tr class="editabl-row">
+				<td>
+					<button>D</button>
+				</td>
+				<td colspan="2">
+					<div class="custom-dropdown">
+						<div>
+							<input class="dropdown-trigger" type="text" placeholder="Select or Search...">
+							<img class="dropdownTrigger svg-color" src="style/icons/chevron-down.svg">
+						</div>
+						<div class="dropdown-options">
+							<div class="dropdown-option">Option 1</div>
+							<div class="dropdown-option">Option 2</div>
+							<div class="dropdown-option">Option 3</div>
+						</div>
+					</div>
+				</td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td class="caret-visible" contenteditable="true"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
 			</tr>
 			<tr>
-				<td ></td>
-				<td colspan="2" style="padding-left: 3%; font-weight: bolder;">TOP NOTES</td>
-				<td >0</td>
-				<td ></td>
-				<td >0.000</td>
-				<td >0</td>
-				<td >0.000%</td>
-				<td >0.000%</td>
-				<td >0.000%</td>
-				<td ></td>
-				<td ></td>
+				<td></td>
+				<td colspan="12" style="text-align: center;">
+					<button class="add-new">ADD NEW TOP NOTE</button>
+				</td>
 			</tr>
-			<tr>
-				<td colspan="4" height="21">ALCOHOL (in grams)</td>
-				<td colspan="8" class="textCenter" contenteditable="true"></td>
+			<tr class="notes-head">
+				<td></td>
+				<td colspan="4" height="21" class="textCenter fontWeightBold">ALCOHOL (in grams)</td>
+				<td colspan="8" class="caret-visible editabl fontWeightBold" contenteditable="true"></td>
 			</tr>
 		</tbody>
 	</table>
 </body>
+
+<script src="js/main.js"></script>
 
 </html>
