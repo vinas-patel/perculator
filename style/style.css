@@ -1,8 +1,32 @@
+:root { 
+    /* https://colorhunt.co/palette/040d12183d3d5c837493b1a6 */
+    /* https://stackoverflow.com/questions/24933430/img-src-svg-changing-the-styles-with-css */
+    /* https://coolors.co/palette/ff7b00-ff8800-ff9500-ffa200-ffaa00-ffb700-ffc300-ffd000-ffdd00-ffea00
+    https://coolors.co/palette/d8f3dc-b7e4c7-95d5b2-74c69d-52b788-40916c-2d6a4f-1b4332-081c15
+    https://coolors.co/palette/d9ed92-b5e48c-99d98c-76c893-52b69a-34a0a4-168aad-1a759f-1e6091-184e77
+    https://coolors.co/palette/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-577590-277da1 */
+
+    --primary-background: #181818;
+    --primary-color: #040D12;
+    --secondary-color: #93B1A6;
+    --mid-color1: #183D3D;
+    --light-color1: #5C8374;
+    --light-color3: #555;
+    --light-color4: #666;
+    --row-color1: #444;
+    --row-color2: #444;
+    --row-color3: #444;
+    --font-default: #93B1A6;
+    --editable-color1: #acfd7c;
+}
+
+
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #ffffff;
-    background-color: #1d1d1d;
-    font-size: 1em;
+    /* font-family: system-ui; */
+    font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif;
+    background: var(--primary-background);
+    caret-color: transparent;
+    color: var(--font-default);
 }
 
 .per-title {
@@ -17,22 +41,39 @@ body {
 .per_table {
     width: 95%;
     margin: 0 auto;
-    border: 1px solid #2f2f2f;
-    border-radius: 4px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--mid-color1);
+    border-radius: 1px;
+    box-shadow: -2px 3px 14px rgb(0 0 0 / 50%);
     font-size: 0.75em;
 }
 
 .table-heads {
-    color: #e8e8e8;
-    background-color: #3c6693;
+    color: var(--light-color1);
+    background-color: var(--primary-color);
     font-weight: bold;
 }
 
-input {
+#startDate {
+    color: var(--font-default);
+}
+
+input#startDate:focus {
+    outline: none;
+}
+
+input, textarea {
     background: transparent;
     border: none;
-    color: #e8e8e8;
+    color: var(--editable-color1);
+}
+
+.description-text {
+    background: transparent;
+    border: none;
+    width: 100%;
+    resize: none;
+    color: white;
+    caret-color:yellow
 }
 
 .textCenter {
@@ -43,22 +84,117 @@ input {
     font-weight: lighter;
 }
 
+.fontWeightBold {
+    font-weight: bold;
+}
 
-th,
-td {
-    border: 1px solid #2f2f2f;
+.editabl {
+    color: var(--editable-color1);
+}
+
+.editabl:focus {
+    border: 1px solid var(--mid-color1);
+}
+
+thead td {
+    border: 1px solid var(--light-color3);
     text-align: left;
     padding: 0.2% 0.3%;
 }
 
-.backColorBlue {
-    background-color: rgb(24, 61, 61);
+tbody td {
+    border-top: 0.01em solid var(--light-color4);
+    border-left: 0.01em solid var(--light-color4);
+    text-align: left;
+    padding: 0.2% 0.3%;
 }
 
-.bg-color-1 {
-    color: #333;
+.notes-head {
+    background-color: var(--row-color1);
 }
 
-.bg-color-2 {
-    background-color: #f2f2f2;
+.editabl-row {
+    background-color: var(--row-color2);
+    text-align: center;
+    
 }
+.editabl-row td{
+    text-align: center;
+    /* caret-color:auto; */
+    color: white;
+}
+.caret-visible{
+    caret-color:yellow;
+    text-align: center;
+}
+
+.editabl-row:nth-child(odd) {
+    background-color: var(--row-color3);
+}
+
+.add-new {
+    padding: 0.3em 4.4rem;
+    color: var(--secondary-color);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdownTrigger {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    right: 0;
+}
+
+.dropdown-trigger {
+    width: 100%;
+}
+
+.dropdown-trigger:focus {
+    outline: none;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    overflow-y: auto;
+    display: none;
+    background: var(--row-color1);
+    z-index: 9;
+}
+
+.dropdown-option {
+    cursor: pointer;
+    transition: background-color 0.2s;
+    padding: 9px 0 5px 5px;
+    text-align: left;
+}
+
+.dropdown-option:hover {
+    background-color: var(--primary-color);
+}
+
+.display-block {
+    display: block;
+}
+
+.action{
+    transform: rotate(270deg);
+}
+
