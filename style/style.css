@@ -1,200 +1,260 @@
-:root { 
-    /* https://colorhunt.co/palette/040d12183d3d5c837493b1a6 */
-    /* https://stackoverflow.com/questions/24933430/img-src-svg-changing-the-styles-with-css */
-    /* https://coolors.co/palette/ff7b00-ff8800-ff9500-ffa200-ffaa00-ffb700-ffc300-ffd000-ffdd00-ffea00
+:root {
+	/* https://colorhunt.co/palette/040d12183d3d5c837493b1a6 */
+	/* https://stackoverflow.com/questions/24933430/img-src-svg-changing-the-styles-with-css */
+	/* https://coolors.co/palette/ff7b00-ff8800-ff9500-ffa200-ffaa00-ffb700-ffc300-ffd000-ffdd00-ffea00
     https://coolors.co/palette/d8f3dc-b7e4c7-95d5b2-74c69d-52b788-40916c-2d6a4f-1b4332-081c15
     https://coolors.co/palette/d9ed92-b5e48c-99d98c-76c893-52b69a-34a0a4-168aad-1a759f-1e6091-184e77
-    https://coolors.co/palette/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-577590-277da1 */
+    https://coolors.co/palette/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-577590-277da1 
+    
+    current : https://maketintsandshades.com/#11212d
+    
+    */
 
-    --primary-background: #181818;
-    --primary-color: #040D12;
-    --secondary-color: #93B1A6;
-    --mid-color1: #183D3D;
-    --light-color1: #5C8374;
-    --light-color3: #555;
-    --light-color4: #666;
-    --row-color1: #444;
-    --row-color2: #444;
-    --row-color3: #444;
-    --font-default: #93B1A6;
-    --editable-color1: #acfd7c;
+	--primary-background: #181f24;
+	--primary-color: #070d12;
+	--secondary-color: #11212d;
+	--mid-color1: #030709;
+	--light-color1: #a0a6ab;
+	--light-color3: #414d57;
+	--light-color4: #707a81;
+	--row-color1: #293742;
+	--row-color2: #293742;
+	--row-color3: #414d57;
+	--font-default: #e7e9ea;
+	--editable-color1: #84d3fa;
+	--error-color: red;
 }
 
-
 body {
-    /* font-family: system-ui; */
-    font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif;
-    background: var(--primary-background);
-    caret-color: transparent;
-    color: var(--font-default);
+	/* font-family: system-ui; */
+	font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri,
+		Helvetica, sans-serif;
+	background: var(--primary-background);
+	caret-color: transparent;
+	color: var(--font-default);
 }
 
 .per-title {
-    text-align: center;
-    margin: 0 auto;
-    background: linear-gradient(to bottom left, #49041f, #ff6b08, #f7d202);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+	text-align: center;
+	margin: 0 auto;
+	background: linear-gradient(to bottom left, #49041f, #ff6b08, #f7d202);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
 }
 
 .per_table {
-    width: 95%;
-    margin: 0 auto;
-    border: 1px solid var(--mid-color1);
-    border-radius: 1px;
-    box-shadow: -2px 3px 14px rgb(0 0 0 / 50%);
-    font-size: 0.75em;
+	width: 95%;
+	margin: 0 auto;
+	border-radius: 1px;
+	box-shadow: -2px 3px 14px rgb(0 0 0 / 50%);
+	font-size: 0.75em;
 }
 
 .table-heads {
-    color: var(--light-color1);
-    background-color: var(--primary-color);
-    font-weight: bold;
+	color: var(--light-color1);
+	background-color: var(--primary-color);
+	font-weight: bold;
 }
 
 #startDate {
-    color: var(--font-default);
+	color: var(--editable-color1);
 }
 
 input#startDate:focus {
-    outline: none;
+	outline: none;
 }
 
-input, textarea {
-    background: transparent;
-    border: none;
-    color: var(--editable-color1);
+input,
+textarea {
+	background: transparent;
+	border: none;
 }
 
 .description-text {
-    background: transparent;
-    border: none;
-    width: 100%;
-    resize: none;
-    color: white;
-    caret-color:yellow
+	width: 100%;
+	resize: none;
 }
 
 .textCenter {
-    text-align: center;
+	text-align: center;
 }
 
 .fontWeightNormal {
-    font-weight: lighter;
+	font-weight: lighter;
 }
 
 .fontWeightBold {
-    font-weight: bold;
+	font-weight: bold;
 }
 
-.editabl {
-    color: var(--editable-color1);
+.editable {
+	color: var(--editable-color1);
 }
 
-.editabl:focus {
-    border: 1px solid var(--mid-color1);
+tbody .editable {
+	border-bottom: 1px solid var(--mid-color1);
+}
+
+.editable:focus {
+	outline: none;
+	border-bottom: 1px solid var(--editable-color1);
 }
 
 thead td {
-    border: 1px solid var(--light-color3);
-    text-align: left;
-    padding: 0.2% 0.3%;
+	border-left: 1px solid var(--light-color3);
+	border-bottom: 1px solid var(--light-color3);
+	text-align: left;
+	padding: 0.2% 0.3%;
+}
+
+thead tr:first-child td {
+	border-top: 1px solid var(--light-color3);
+}
+
+thead tr:last-child td,
+thead tr:first-child td:first-child {
+	border-bottom: none;
+}
+
+thead tr td:last-child {
+	border-right: 1px solid var(--light-color3);
 }
 
 tbody td {
-    border-top: 0.01em solid var(--light-color4);
-    border-left: 0.01em solid var(--light-color4);
-    text-align: left;
-    padding: 0.2% 0.3%;
+	text-align: left;
+	padding: 0.2% 0.3%;
 }
 
 .notes-head {
-    background-color: var(--row-color1);
+	background-color: var(--secondary-color);
+	color: var(--light-color1);
 }
 
-.editabl-row {
-    background-color: var(--row-color2);
-    text-align: center;
-    
-}
-.editabl-row td{
-    text-align: center;
-    /* caret-color:auto; */
-    color: white;
-}
-.caret-visible{
-    caret-color:yellow;
-    text-align: center;
+.notes-head td {
+	border-top: 1px solid var(--mid-color1);
 }
 
-.editabl-row:nth-child(odd) {
-    background-color: var(--row-color3);
+.note-header {
+	padding: 0.2em 0 0em 1.5em;
+	font-weight: bolder;
+	font-size: 13px;
+}
+
+.editable-row {
+	background-color: var(--row-color2);
+	text-align: center;
+}
+
+.editable-row td {
+	text-align: center;
+	border-bottom: 1px solid var(--light-color4);
+	border-top: 1px solid var(--light-color4);
+}
+
+.editable-row .calc {
+	width: 47px;
+}
+
+.editable-row .calced {
+	width: 50px;
+}
+
+.caret-visible {
+	caret-color: yellow;
+}
+
+.editable-row:nth-child(odd) {
+	background-color: var(--row-color3);
+}
+
+.add-button-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .add-new {
-    padding: 0.3em 4.4rem;
-    color: var(--secondary-color);
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    font-weight: bold;
+	color: var(--editable-color1);
+	font-weight: bolder;
+	cursor: pointer;
 }
 
+.feather-plus-square {
+	color: var(--editable-color1);
+}
 
+.action {
+	transform: rotate(270deg);
+}
+
+.calc-error {
+	color: var(--error-color);
+	border-color: var(--error-color) !important;
+}
+
+#total-gm {
+	width: 40px;
+	text-align: center;
+	position: absolute;
+	margin-top: 0.2em;
+}
+
+#add-weight {
+	color: var(--editable-color1);
+	font-weight: bolder;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+}
 
 .custom-dropdown {
-    position: relative;
-    display: inline-block;
-    width: 100%;
+	position: relative;
+	display: inline-block;
+	width: 100%;
 }
 
 .dropdownTrigger {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    right: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	right: 0;
 }
 
 .dropdown-trigger {
-    width: 100%;
+	width: 100%;
 }
 
 .dropdown-trigger:focus {
-    outline: none;
+	outline: none;
 }
 
 .dropdown-options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    border: 1px solid var(--primary-color);
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    overflow-y: auto;
-    display: none;
-    background: var(--row-color1);
-    z-index: 9;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	border: 1px solid var(--primary-color);
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+	overflow-y: auto;
+	display: none;
+	background: var(--row-color1);
+	z-index: 9;
 }
 
 .dropdown-option {
-    cursor: pointer;
-    transition: background-color 0.2s;
-    padding: 9px 0 5px 5px;
-    text-align: left;
+	cursor: pointer;
+	transition: background-color 0.2s;
+	padding: 9px 0 5px 5px;
+	text-align: left;
 }
 
 .dropdown-option:hover {
-    background-color: var(--primary-color);
+	background-color: var(--primary-color);
 }
 
 .display-block {
-    display: block;
+	display: block;
 }
-
-.action{
-    transform: rotate(270deg);
-}
-
