@@ -37,7 +37,7 @@ $(function () {
 
 	$.alcoholGM = 0;
 
-    $(".calc-base-gm").focusout((e) => {
+    $(".calc-base-gm").on("focusout", (e) => {
         
 		$(e.target).removeClass("calc-error");
 		$.baseGM = calculateColumnTotal($(".calc-base-gm"));
@@ -53,7 +53,7 @@ $(function () {
 		calculatePRData();
 	});
 
-	$(".calc-middle-gm").focusout((e) => {
+	$(".calc-middle-gm").on("focusout", (e) => {
         
 		$(e.target).removeClass("calc-error");
 		$.middleGM = calculateColumnTotal($(".calc-middle-gm"));
@@ -64,10 +64,13 @@ $(function () {
 												.find(".calced-raw-material-in-gms"));
 
 		$(".middle-notes-rmig").text($.middleRMIG);
+
 		calculateTotals();
+
+		calculatePRData();
 	});
 
-    $(".calc-top-gm").focusout((e) => {
+    $(".calc-top-gm").on("focusout", (e) => {
         
 		$(e.target).removeClass("calc-error");
 		$.topGM = calculateColumnTotal($(".calc-top-gm"));
@@ -78,32 +81,43 @@ $(function () {
 											.find(".calced-raw-material-in-gms"));
 		
 		$(".top-notes-rmig").text($.topRMIG);
+		
 		calculateTotals();
+
+		calculatePRData();
 	});
 
-	$(".calc-base-pr").focusout((e) => {
+	$(".calc-base-pr").on("focusout", (e) => {
         $(e.target).removeClass("calc-error");
 		$.basePR = calculateColumnTotal($(".calc-base-pr"));
 		$(".base-notes-pr").text($.basePR);
+		
 		calculateTotals();
+
+		calculatePRData();
 	});
 
-	$(".calc-middle-pr").focusout((e) => {
+	$(".calc-middle-pr").on("focusout", (e) => {
         $(e.target).removeClass("calc-error");
 		$.middlePR = calculateColumnTotal($(".calc-middle-pr"));
 		$(".middle-notes-pr").text($.middlePR);
-		calculateTotals();		calculateTotals();
+		
+		calculateTotals();
 
+		calculatePRData();
 	});
 
-	$(".calc-top-pr").focusout((e) => {
+	$(".calc-top-pr").on("focusout", (e) => {
         $(e.target).removeClass("calc-error");
 		$.topPR = calculateColumnTotal($(".calc-top-pr"));
 		$(".top-notes-pr").text($.topPR);
+		
 		calculateTotals();
+
+		calculatePRData();
 	});
 
-	$(".calc-alcohol").focusout((e) => {
+	$(".calc-alcohol").on("focusout", (e) => {
 		$(e.target).removeClass("calc-error");
 		let val = Number($(e.target).val());
 		if (isNaN(val)) {
@@ -111,28 +125,31 @@ $(function () {
             return;
         }
 		$.alcoholGM = val;
+		
 		calculateTotals();
+
+		calculatePRData();
 	});
 
-	$(".calc-base-drops").focusout((e) => {
+	$(".calc-base-drops").on("focusout", (e) => {
         $(e.target).removeClass("calc-error");
 		$.baseDrops = calculateColumnTotal($(".calc-base-drops"));
 		$(".base-notes-drops").text($.baseDrops);
 	});
 
-	$(".calc-top-drops").focusout((e) => {
+	$(".calc-top-drops").on("focusout", (e) => {
         $(e.target).removeClass("calc-error");
 		$.topDrops = calculateColumnTotal($(".calc-top-drops"));
 		$(".top-notes-drops").text($.topDrops);
 	});
 
-	$(".calc-middle-drops").focusout((e) => {
+	$(".calc-middle-drops").on("focusout", (e) => {
         $(e.target).removeClass("calc-error");
 		$.middleDrops = calculateColumnTotal($(".calc-middle-drops"));
 		$(".middle-notes-drops").text($.middleDrops);
 	});
 
-	$(".base-editable-row").find(".calc-dilution").focusout((e) => {
+	$(".calc-base-dilution").on("focusout", (e) => {
 		const $target = $(e.target);
 		$target.removeClass("calc-error");
 		if(isNaN($target.val()))
@@ -143,10 +160,13 @@ $(function () {
 											.find(".calced-raw-material-in-gms"));
 		
 		$(".base-notes-rmig").text($.baseRMIG);
+		
 		calculateTotals();
+
+		calculatePRData();
 	});
 
-	$(".middle-editable-row").find(".calc-dilution").focusout((e) => {
+	$(".calc-middle-dilution").on("focusout", (e) => {
 		const $target = $(e.target);
 		$target.removeClass("calc-error");
 		if(isNaN($target.val()))
@@ -160,7 +180,7 @@ $(function () {
 		calculateTotals();
 	});
 
-	$(".top-editable-row").find(".calc-dilution").focusout((e) => {
+	$(".calc-top-dilution").on("focusout", (e) => {
 		const $target = $(e.target);
 		$target.removeClass("calc-error");
 		if(isNaN($target.val()))
@@ -171,7 +191,10 @@ $(function () {
 											.find(".calced-raw-material-in-gms"));
 		
 		$(".top-notes-rmig").text($.topRMIG);
+		
 		calculateTotals();
+
+		calculatePRData();
 	});
 
 	function calculateColumnTotal($columns) {
@@ -191,32 +214,51 @@ $(function () {
 	function calculatePRData() {
 
 		$(".editable-row").each((i, item) => {
-			let $raw = $(item);
+			const $raw = $(item);
 			let addedPR = $raw.find(".calc-pr").val();
 			let addedGrams = $raw.find(".calc-gm").val();
 			let RMIGM = $raw.find('.calced-raw-material-in-gms').val();
 			
-			let RIIFPPR = parseFloat((RMIGM / $.totalGM) * 100).toFixed(3);
-			let RIICPR = parseFloat((RMIGM / $.concentrateOnlyGM) * 100).toFixed(3);
-			let ITPPR = parseFloat((addedGrams/$.totalGM) * 100).toFixed(3);
+			let RIIFPPR, RIICPR, ITPPR;
+			if(isNaN(RMIGM)) {
+				RIIFPPR = RIICPR = ITPPR = "Error";
+			} else {
+				RIIFPPR = parseFloat((RMIGM / $.totalGM) * 100).toFixed(3);
+				RIICPR = parseFloat((RMIGM / $.concentrateOnlyGM) * 100).toFixed(3);
+				ITPPR = parseFloat((addedGrams/$.totalGM) * 100).toFixed(3);
+			}
 
 			$raw.find('.calced-riifp-pr').val(RIIFPPR);
 			$raw.find('.calced-riic-pr').val(RIICPR);
 			$raw.find('.calced-itp-pr').val(ITPPR);
 		});
 		
-		let baseRIIFPPR = calculateColumnTotal($(".base-editable-row").find(".calced-riifp-pr"));
+		const baseRIIFPPR = calculateColumnTotal($(".base-editable-row").find(".calced-riifp-pr"));
 		$(".base-riifp-pr").text(baseRIIFPPR);
-		let middleRIIFPPR = calculateColumnTotal($(".middle-editable-row").find(".calced-riifp-pr"));
+		const middleRIIFPPR = calculateColumnTotal($(".middle-editable-row").find(".calced-riifp-pr"));
 		$(".middle-riifp-pr").text(middleRIIFPPR);
-		let topRIIFPPR = calculateColumnTotal($(".top-editable-row").find(".calced-riifp-pr"));
+		const topRIIFPPR = calculateColumnTotal($(".top-editable-row").find(".calced-riifp-pr"));
 		$(".top-riifp-pr").text(topRIIFPPR);
-	}	// TODO fix NaN
+
+		const baseRIICPR = calculateColumnTotal($(".base-editable-row").find(".calced-riic-pr"));
+		$(".base-riic-pr").text(baseRIICPR);
+		const middleRIICPR = calculateColumnTotal($(".middle-editable-row").find(".calced-riic-pr"));
+		$(".middle-riic-pr").text(middleRIICPR);
+		const topRIICPR = calculateColumnTotal($(".top-editable-row").find(".calced-riic-pr"));
+		$(".top-riic-pr").text(topRIICPR);
+
+		const baseITPPR = calculateColumnTotal($(".base-editable-row").find(".calced-itp-pr"));
+		$(".base-itp-pr").text(baseITPPR);
+		const middleITPPR = calculateColumnTotal($(".middle-editable-row").find(".calced-itp-pr"));
+		$(".middle-itp-pr").text(middleITPPR);
+		const topITPPR = calculateColumnTotal($(".top-editable-row").find(".calced-itp-pr"));
+		$(".top-itp-pr").text(topITPPR);
+	}
 
 	function calculateColumnRMIG(e) {
-		let $raw = $(e.target).closest(".editable-row");
-		let addedGrams = Number($raw.find(".calc-gm").val());
-		let dilution = Number($raw.find(".calc-dilution").val()) || 100;
+		const $raw = $(e.target).closest(".editable-row");
+		const addedGrams = Number($raw.find(".calc-gm").val());
+		const dilution = Number($raw.find(".calc-dilution").val()) || 100;
 		
 		let RMIGM = 0;
 
