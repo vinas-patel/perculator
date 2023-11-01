@@ -196,6 +196,9 @@ tbody td {
 	color: var(--editable-color1);
 	font-weight: bolder;
 	cursor: pointer;
+	background: transparent;
+	border: none;
+	
 }
 
 .feather-plus-square {
@@ -225,6 +228,13 @@ tbody td {
 	background-color: transparent;
 	border: none;
 }
+
+
+
+
+
+/*=============== Dropdown  ====================*/
+
 
 .custom-dropdown {
 	position: relative;
