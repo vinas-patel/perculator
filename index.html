@@ -53,7 +53,7 @@
 							<button id="add-weight">Add desired weight</button>
 						</span>
 					</div>
-				</td>		
+				</td>
 			</tr>
 			<tr class="table-heads">
 
@@ -63,12 +63,12 @@
 				</td>
 				<td class="textCenter fontWeightNormal daysValue">43</td>
 				<td>Concentrate <br />Only</td>
-				<td class="textCenter fontWeightNormal">0.000</td>
+				<td id="final-concentrate-weight-gm" class="textCenter fontWeightNormal">0.000</td>
 			</tr>
 			<tr class="table-heads">
 
 				<td colspan="2" class="textCenter">Material</td>
-				<td class="textCenter">Dilution</td>
+				<td class="textCenter">Dilution <br /> in <br /> %</td>
 				<td class="textCenter">Drops</td>
 				<td class="textCenter">Material<br />Added in<br> %</td>
 				<td class="textCenter">Grams <br />Added</td>
@@ -84,27 +84,157 @@
 			<tr class="notes-head base-notes">
 				<td colspan="2">
 					<div class="add-button-container">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 24 24" fill="none"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-							class="feather feather-plus-square" style="vertical-align: middle;">
-							<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-							<line x1="12" y1="8" x2="12" y2="16"></line>
-							<line x1="8" y1="12" x2="16" y2="12"></line>
-						</svg>
-						<input type="button" class="add-new" value="ADD NEW">
+						<button class="add-new" value="ADD NEW">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="feather feather-plus-square"
+								style="vertical-align: middle;">
+								<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+								<line x1="12" y1="8" x2="12" y2="16"></line>
+								<line x1="8" y1="12" x2="16" y2="12"></line>
+							</svg>
+							ADD NEW
+						</button>
+						<!-- <input type="button" class="add-new" value="ADD NEW"> -->
 					</div>
 				</td>
 				<td colspan="2" class="note-header">BASE NOTES</td>
-				<td class="textCenter base-notes-drops">1</td>
-				<td class="textCenter base-notes-pr">12</td>
-				<td class="textCenter base-notes-gm">0</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td class="textRight base-notes-drops"></td>
+				<td class="textRight base-notes-pr"></td>
+				<td class="textRight base-notes-gm"></td>
+				<td class="textRight base-notes-rmig">0</td>
+				<td class="textRight base-riifp-pr"></td>
+				<td class="textRight base-riic-pr"></td>
+				<td class="textRight base-itp-pr"></td>
 				<td colspan="2"></td>
 			</tr>
-			<tr class="editable-row">
+			<tr class="editable-row base-editable-row">
+				<td>
+					<button>D</button>
+				</td>
+				<td colspan="2">
+					<div class="custom-dropdown">
+						<div>
+							<input class="dropdown-trigger" type="text" placeholder="Select or Search...">
+							<img class="dropdownTrigger svg-color" src="style/icons/chevron-down.svg" alt="V">
+						</div>
+						<div class="dropdown-options">
+							<div class="dropdown-option">Option 1</div>
+							<div class="dropdown-option">Option 2</div>
+							<div class="dropdown-option">Option 3</div>
+						</div>
+					</div>
+				</td>
+				<td>
+					<input type="text" class="caret-visible editable calc calc-dilution" value="">
+				</td>
+				<td>
+					<input type="text" class="caret-visible editable calc calc-base-drops" value="">
+				</td>
+				<td>
+					<input type="text" class="caret-visible editable calc calc-pr calc-base-pr" value="">
+				</td>
+				<td>
+					<input type="text" class="caret-visible editable calc calc-gm calc-base-gm" value="30">
+				</td>
+				<td>
+					<input type="text" class="calced calced-raw-material-in-gms">
+				</td>
+				<td>
+					<input type="text" class="calced calced-riifp-pr">
+				</td>
+				<td>
+					<input type="text" class="calced calced-riic-pr">
+				</td>
+				<td>
+					<input type="text" class="calced calced-itp-pr">
+				</td>
+				<td>
+					<input type="text" class="calced commn-material-use-pr">
+				</td>
+				<td>
+					<textarea rows="1" style="width: 98%;" class="editable"></textarea>
+				</td>
+			</tr>
+
+			<tr class="notes-head middle-notes">
+				<td colspan="2">
+					<input type="button" class="add-new" value="+ ADD NEW">
+				</td>
+				<td colspan="2" class="note-header">MIDDLE NOTES</td>
+				<td class="textRight middle-notes-drops"></td>
+				<td class="textRight middle-notes-pr"></td>
+				<td class="textRight middle-notes-gm"></td>
+				<td class="textRight middle-notes-rmig"></td>
+				<td class="textRight middle-riifp-pr"></td>
+				<td class="textRight middle-riic-pr"></td>
+				<td class="textRight middle-itp-pr"></td>
+				<td colspan="2"></td>
+			</tr>
+			<tr class="editable-row middle-editable-row">
+				<td>
+					<button>D</button>
+				</td>
+				<td colspan="2">
+					<div class="custom-dropdown">
+						<div>
+							<input class="dropdown-trigger" type="text" placeholder="Select or Search...">
+							<img class="dropdownTrigger svg-color" src="style/icons/chevron-down.svg" alt="V">
+						</div>
+						<div class="dropdown-options">
+							<div class="dropdown-option">Option 1</div>
+							<div class="dropdown-option">Option 2</div>
+							<div class="dropdown-option">Option 3</div>
+						</div>
+					</div>
+				</td>
+				<td>
+					<input type="text" class="caret-visible editable calc calc-dilution" value="">
+				</td>
+				<td>
+					<input type="text" class="caret-visible editable calc calc-middle-drops" value="">
+				</td>
+				<td>
+					<input type="text" class="caret-visible editable calc calc-pr calc-middle-pr" value="">
+				</td>
+				<td>
+					<input type="text" class="caret-visible editable calc calc-gm calc-middle-gm" value="30">
+				</td>
+				<td>
+					<input type="text" class="calced calced-raw-material-in-gms">
+				</td>
+				<td>
+					<input type="text" class="calced calced-riifp-pr">
+				</td>
+				<td>
+					<input type="text" class="calced calced-riic-pr">
+				</td>
+				<td>
+					<input type="text" class="calced calced-itp-pr">
+				</td>
+				<td>
+					<input type="text" class="calced commn-material-use-pr">
+				</td>
+				<td>
+					<textarea rows="1" style="width: 98%;" class="editable"></textarea>
+				</td>
+			</tr>
+
+			<tr class="notes-head top-notes">
+				<td colspan="2">
+					<input type="button" class="add-new" value="ADD NEW">
+				</td>
+				<td colspan="2" class="note-header">TOP NOTES</td>
+				<td class="textRight top-notes-drops"></td>
+				<td class="textRight top-notes-pr"></td>
+				<td class="textRight top-notes-gm"></td>
+				<td class="textRight top-notes-rmig"></td>
+				<td class="textRight top-riifp-pr"></td>
+				<td class="textRight top-riic-pr"></td>
+				<td class="textRight top-itp-pr"></td>
+				<td colspan="2"></td>
+			</tr>
+			<tr class="editable-row top-editable-row">
 				<td>
 					<button>D</button>
 				</td>
@@ -125,28 +255,28 @@
 					<input type="text" class="caret-visible editable calc calc-dilution">
 				</td>
 				<td>
-					<input type="text" class="caret-visible editable calc calc-base-drops">
+					<input type="text" class="caret-visible editable calc calc-top-drops" value="">
 				</td>
 				<td>
-					<input type="text" class="caret-visible editable calc calc-base-pr">
+					<input type="text" class="caret-visible editable calc calc-pr calc-top-pr" value="">
 				</td>
 				<td>
-					<input type="text" class="caret-visible editable calc calc-base-gm">
-				</td>
-				<td>
-					<input type="text" class="calced calced-raw-material-in-gms">
+					<input type="text" class="caret-visible editable calc calc-gm calc-top-gm" value="40">
 				</td>
 				<td>
 					<input type="text" class="calced calced-raw-material-in-gms">
 				</td>
 				<td>
-					<input type="text" class="calced calced-raw-material-in-gms">
+					<input type="text" class="calced calced-riifp-pr">
 				</td>
 				<td>
-					<input type="text" class="calced calced-raw-material-in-gms">
+					<input type="text" class="calced calced-riic-pr">
 				</td>
 				<td>
-					<input type="text" class="calced calced-raw-material-in-gms">
+					<input type="text" class="calced calced-itp-pr">
+				</td>
+				<td>
+					<input type="text" class="calced commn-material-use-pr">
 				</td>
 				<td>
 					<textarea rows="1" style="width: 98%;" class="editable"></textarea>
@@ -154,96 +284,10 @@
 			</tr>
 
 			<tr class="notes-head">
-				<td colspan="2">
-					<input type="button" class="add-new" value="+ ADD NEW">
-				</td>
-				<td colspan="2" class="note-header">MIDDLE NOTES</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td colspan="2"></td>
-			</tr>
-			<tr class="editable-row">
-				<td>
-					<button>D</button>
-				</td>
-				<td colspan="2">
-					<div class="custom-dropdown">
-						<div>
-							<input class="dropdown-trigger" type="text" placeholder="Select or Search...">
-							<img class="dropdownTrigger svg-color" src="style/icons/chevron-down.svg">
-						</div>
-						<div class="dropdown-options">
-							<div class="dropdown-option">Option 1</div>
-							<div class="dropdown-option">Option 2</div>
-							<div class="dropdown-option">Option 3</div>
-						</div>
-					</div>
-				</td>
-				<td class="caret-visible" contenteditable="true"></td>
-				<td class="caret-visible" contenteditable="true"></td>
-				<td class="caret-visible" contenteditable="true"></td>
-				<td class="caret-visible" contenteditable="true"></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-
-			<tr class="notes-head">
-				<td colspan="2">
-					<input type="button" class="add-new" value="ADD NEW">
-				</td>
-				<td colspan="2" class="note-header">TOP NOTES</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td colspan="2"></td>
-			</tr>
-			<tr class="editable-row">
-				<td>
-					<button>D</button>
-				</td>
-				<td colspan="2">
-					<div class="custom-dropdown">
-						<div>
-							<input class="dropdown-trigger" type="text" placeholder="Select or Search...">
-							<img class="dropdownTrigger svg-color" src="style/icons/chevron-down.svg">
-						</div>
-						<div class="dropdown-options">
-							<div class="dropdown-option">Option 1</div>
-							<div class="dropdown-option">Option 2</div>
-							<div class="dropdown-option">Option 3</div>
-						</div>
-					</div>
-				</td>
-				<td class="caret-visible" contenteditable="true"></td>
-				<td class="caret-visible" contenteditable="true"></td>
-				<td class="caret-visible" contenteditable="true"></td>
-				<td class="caret-visible" contenteditable="true"></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-
-			<tr class="notes-head">
 				<td></td>
 				<td colspan="4" height="21" class="textCenter fontWeightBold">ALCOHOL (in grams)</td>
 				<td colspan="8">
-					<input type="text" class="caret-visible editable fontWeightBold textCenter calc calc-alcohol">
+					<input type="text" class="caret-visible editable fontWeightBold textCenter calc calc-alcohol" value="2">
 				</td>
 			</tr>
 		</tbody>

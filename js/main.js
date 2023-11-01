@@ -32,6 +32,10 @@ $(function () {
 		$.desiredGM = Number(val);
 	});
 
+	$(".calc-percentage").on("focusin", (e) => {
+		//TODO remove % after text add on focus out
+	});
+
 	$(".calc-percentage").on("focusout", (e) => {
 		//TODO add % after text remove on focus
 	});

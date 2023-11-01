@@ -34,6 +34,10 @@ body {
 	color: var(--font-default);
 }
 
+body input {
+	color: var(--font-default);
+}
+
 .per-title {
 	text-align: center;
 	margin: 0 auto;
@@ -78,6 +82,10 @@ textarea {
 
 .textCenter {
 	text-align: center;
+}
+
+.textRight {
+    text-align: right;
 }
 
 .fontWeightNormal {
@@ -154,10 +162,20 @@ tbody td {
 
 .editable-row .calc {
 	width: 47px;
+	text-align: right;
 }
 
 .editable-row .calced {
 	width: 50px;
+}
+
+.calced {
+	text-align: right;
+}
+
+.calced:focus {
+	border: none;
+	outline: none;
 }
 
 .caret-visible {
